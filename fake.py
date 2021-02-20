@@ -24,3 +24,5 @@ pac.fit(tfidf_train, y_train)
 y_pred = pac.predict(tfidf_test)
 score = accuracy_score(y_test, y_pred)
 print(f'Accuracy: {round(score*100,2)}%')
+
+print(confusion_matrix(y_test, y_pred, labels=['FAKE','REAL']))
