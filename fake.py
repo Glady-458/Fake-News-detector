@@ -9,4 +9,9 @@ print(df.head())
 labels = df.label
 print(labels.head())
 
-x_train, xtest, y_train, ytest = train_test_split(df['text'], labels, test_size = 0.2, random_state=2)
+x_train, x_test, y_train, ytest = train_test_split(df['text'], labels, test_size = 0.2, random_state=2)
+
+tfidf_vect = TfidfVectorizer(stop_words="english", max_df=0.7)
+
+tfid_train = tfidf_vect.fit_transform(x_train)
+tfidf_test = tfidf_vect.transform(x_test)
